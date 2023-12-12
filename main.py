@@ -71,10 +71,10 @@ class GridWorldEnv(gym.Env):
         )
 
     def _generate_obstacles(self):
-        # �ֶ��趨һЩ�ϰ����λ��
+     
         obstacle_positions = [
             (2, 3), (4, 7), (6, 2), (8, 5), (1, 9)
-            # ���������ӻ��޸��ϰ����λ��
+           
         ]
 
         self.obstacles = set(obstacle_positions)
@@ -142,8 +142,7 @@ class GridWorldEnv(gym.Env):
         for obstacle_location in self.obstacles:
             pygame.draw.rect(
                 canvas,
-                (169, 169, 169),  # �޸���ɫΪ��ɫ
-                pygame.Rect(
+                (169, 169, 169), 
                     pix_square_size * np.array(obstacle_location),
                     (pix_square_size, pix_square_size),
                 ),
@@ -154,7 +153,7 @@ class GridWorldEnv(gym.Env):
 
         pygame.draw.rect(
             canvas,
-            (255, 0, 0),  # �޸���ɫΪ��ɫ
+            (255, 0, 0), 
             pygame.Rect(
                 pix_square_size * self._agent_location,
                 (pix_square_size, pix_square_size),
@@ -236,11 +235,11 @@ class GridWorldEnv(gym.Env):
         print(f"Average Timesteps per Trip: {avg_timesteps}")
         print(f"Average Rewards per Move: {avg_rewards_per_move}")
 
-# ����GridWorldEnv����
+
 env = GridWorldEnv(size=10, num_obstacles=15, render_mode="human", action_delay=0.1)
 env.display_q_table()
 
-# ѵ��Q-learning����
+
 num_episodes_training = 10
 
 for episode in range(num_episodes_training):
@@ -261,11 +260,11 @@ for episode in range(num_episodes_training):
 
     print(f"Episode {episode + 1}/{num_episodes_training}, Total Reward: {total_reward}")
 
-# ѵ������������
+
 env.evaluate_agent(num_episodes=10)
 env.display_q_table()
 
-# ����ѵ����Ĵ���
+
 state, _ = env.reset()
 visited_states = [state]
 
