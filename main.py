@@ -280,5 +280,4 @@ print("Optimal Path:")
 for state in visited_states:
     position = (state // env.size, state % env.size)
     print(f"State: {position}")
-
 env.close()
